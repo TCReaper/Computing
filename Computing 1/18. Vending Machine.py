@@ -30,3 +30,27 @@ change = total - drink
 opchange = change / 100
 print("Total cash inserted:   $" + str(optotal)+"0" )
 print("Returning $" + str(opchange)+"0" + " of change, in the form of:")
+
+opdollar = 0
+opfifty = 0
+optwenty = 0
+opten = 0
+
+while change >= 100:
+        change -= 100
+        opdollar += 1
+while change >= 50:
+        change -= 50
+        opfifty += 1
+while change >= 20:
+        change -= 20
+        optwenty += 1
+while change >= 10:
+        change -= 10
+        opten += 1
+
+print(str(opdollar) + " x 1-dollar coin(s)")
+print(str(opfifty) + " x 50-cent coin(s)")
+print(str(optwenty) + " x 20-cent coin(s)")
+print(str(opten) + " x 10-cent coin(s)")
+
