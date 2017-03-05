@@ -9,9 +9,8 @@
 ##                        12
 ##
 ##                2:
-##                        ii.     Starts with an underscore
-##                        v.     Starts with a number
-##                        vi.     Use of hyphens   (the unalignment affects me a lot T-T)
+##                        i.     "and" is a comparator
+##                        vi.     Use of hyphens
 ##                        viii.   System code
 ##
 ##                3:
