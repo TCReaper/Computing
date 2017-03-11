@@ -28,7 +28,7 @@ def binary(data):
         if data[middleIndex] == x:
                 return middleIndex
         elif data[middleIndex] < x:
-                return binary(data[middleIndex+1:])
+                return len(data[:middleIndex]) + binary(data[middleIndex+1:])
         else:
                 return binary(data[:middleIndex])
 
