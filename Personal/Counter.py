@@ -7,8 +7,8 @@ import pygame
 
 sys.setrecursionlimit(3344)
 
-counter = 201286
-        # 200000
+counter = 202281
+
 
 def count():
 
@@ -17,13 +17,13 @@ def count():
                 global limit
                 
                 enter = "{ENTER}"
-                SendKeys.SendKeys(str(counter))
                 time.sleep(0.8)
                 humandelay = random.uniform(0.1, 0.9) + \
                              random.uniform(0.2, 0.7) + \
                              random.uniform(0.2, 0.6) + \
                              random.uniform(0, 0.5)
-                #time.sleep(int(humandelay))
+                time.sleep(int(humandelay))
+                SendKeys.SendKeys(str(counter))
                 SendKeys.SendKeys(enter)
                 counter += 1
 

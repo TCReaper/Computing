@@ -1,62 +1,33 @@
-# Takes integer, prints out digits in word form
+
+# alt 4 to uncomment
+
+global myList
+myList = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+
+##def fml(n):
+##                return myList[int(i)] 
+
+##n = input("Convert any positive integer to words:    ")
+
+##for i in n:
+##        print(fml(n) ,end = " ")
 
 
-def wordform(n, length, current, Final):
+def kms(now, index):
+        global myList
         
-        if current == length:
-                print(Final)
+        if index >= len(now):
+                return []
         
         else:
-                if n[current] == "0":
-                        Final = Final + " zero"
-                        return Final + wordform(n, length, current + 1, Final)
-                
-                elif n[current] == "1":
-                        Final = Final + " one"
-                        return Final + wordform(n, length, current + 1, Final)
-                
-                elif n[current] == "2":
-                        Final = Final + " two"
-                        return Final + wordform(n, length, current + 1, Final)
-                
-                elif n[current] == "3":
-                        Final = Final + " three"
-                        return Final + wordform(n, length, current + 1, Final)
-                
-                elif n[current] == "4":
-                        Final = Final + " four"
-                        return Final + wordform(n, length, current + 1, Final)
-                
-                elif n[current] == "5":
-                        Final = Final + " five"
-                        return Final + wordform(n, length, current + 1, Final)
-                
-                elif n[current] == "6":
-                        Final = Final + " six"
-                        return Final + wordform(n, length, current + 1, Final)
-                
-                elif n[current] == "7":
-                        Final = Final + " seven"
-                        return Final + wordform(n, length, current + 1, Final)
-                
-                elif n[current] == "8":
-                        Final = Final + " eight"
-                        return Final + wordform(n, length, current + 1, Final)
-                
-                elif n[current] == "9":
-                        Final = Final + " nine"
-                        return Final + wordform(n, length, current + 1, Final)
-                else:
-                        print("It's not a word!")
+                return [myList[int(now[index])]] + kms(now, index+1)
 
 
 
+now = input("Positive Integer!    ")
+index = 0
 
-
-n = input("What positive integer would you like to convert to words?    ")
-length = len(str(n))
-current = 0
-Final = " "
-
-
-wordform(n, length, current, Final)
+res = kms(now, index)
+for i in res:
+        print (i, end = "  ")
+        
