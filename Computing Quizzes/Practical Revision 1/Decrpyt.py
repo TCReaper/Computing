@@ -28,8 +28,8 @@ def decoding(kms,bases):
         printing = True
         while printing:
 
-            element = cur_line[step:step+cur_step_value]
-            step += cur_step_value
+            element = cur_line[step:step+cur_step_value-1]
+            step += cur_step_value -1 
             try:
                 char = int(str(element),cur_base)
                 print(chr(char),end="")
