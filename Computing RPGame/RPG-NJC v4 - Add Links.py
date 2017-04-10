@@ -5,8 +5,6 @@
         #ThisIsAComment
 
 
-import re
-
 class GameMap():
 
         _area_file = "Areas.txt"
@@ -48,7 +46,10 @@ class GameMap():
                 print("{0:<10}{1:<10}".format("LINK ID", "AREA NAME"))
                 for i in self._areas:
                         print("{0:<10}{1:<10}".format(str(i.get_id()), str(i.get_name())))
-
+        def show_everything(self):
+                print("{0:<10}{1:<20}{1:<10}".format("LINK ID", "LINKS" ,"NAME"))
+                for i in self._areas:
+                        print("{0:<10}{1:<20}{1:<20}".format(str(i.get_id()),str(i._links),str(i._name)))
 
 
 class GameArea():
@@ -295,12 +296,21 @@ def savestage():
         saving.close()
         for i in x._areas:
                 saving = open("Areas.txt","a")
-                link_string = ""
+                link_string = ""        
                 for link in i._links:
-                        link_string = link_string + "," + str(link)
+                        link_string = link_string + str(link)
+                        if link == i._links[-1]:
+                                break
+                        else:
+                                link_string += ","
                 lname_string = ""
                 for name in i._link_names:
-                        lname_string = lname_string + "," + name
+                        lname_string = lname_string + name
+                        if name == i._link_names[-1]:
+                                break
+                        else:
+                                lname_string += ","
+                                
                 line = str(i._id)+";"+i._name+";"+i._desc+";"+str(link_string)+";"+str(lname_string)+"\n"
                 saving.write(line)
 
