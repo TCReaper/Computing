@@ -1,0 +1,9 @@
+0;Oasis;==The Temporary Refuge==;1;Linkway
+1;Linkway;==Bricks, And More Bricks==;0,2,3;Oasis,Canteen,Aesthetics Block
+2;Canteen;==Long Queues No Time==;1,4;Linkway,Canteen Stairs
+3;Aesthetics Block;==For The Autistic==;1;Linkway
+4;Canteen Stairs;==A Clocktower Can Be Seen==;2,5,6,7,8;Canteen,Gym,Squash Court,Grandstand,Banner Painting Area
+5;Gym;==Mildly Suffocating==;4,6,7,8;Canteen Stairs,Squash Court,Grandstand,Banner Painting Area
+6;Squash Court;==Boing Boing==;4,5,7,8;Canteen Stairs,Gym,Grandstand,Banner Painting Area
+7;Grandstand;==There Is A Smell Of Blood, Sweat and Tears Here==;4,8,9,10;Canteen Stairs,Banner Painting Area,Track,Aircon Gym
+8;Banner Painting Area;==Is That Blood Or Red Paint==;4,7,9,10;Canteen Stairs,Grandstand,Track,Aircon Gym
