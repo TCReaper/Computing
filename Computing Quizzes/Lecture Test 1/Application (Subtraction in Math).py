@@ -3,8 +3,9 @@
 import random
 
 def application():
-    namecheck = True
-    while namecheck:
+      # get username
+      namecheck = True
+      while namecheck:
         name = input("What's your name:    ")
         try:
             name = int(name)
@@ -15,12 +16,13 @@ def application():
             print("Illegal name; must only include letters/spaces")
             continue
 
-    questions = 1
-    correct = 0
-    while questions != 11:
+      questions = 1
+      correct = 0
+      while questions != 11:
         x = random.randint(1,101)
         y = random.randint(1,100)
         if y <= x:
+            #p
             ans = x-y
             title = "Q" + str(questions) + ")  What is: "
             title2 = " equal to?  "
@@ -55,31 +57,32 @@ def application():
         elif x <= y:
             continue
 
-    index = correct
-    gradelist = [" U"," U"," U"," U"," U"," D"," C+"," B+"," A"," A+","A+"]
-    grade = gradelist[index]
+      index = correct
+      gradelist = [" U"," U"," U"," U"," U"," D"," C+"," B+"," A"," A+","A+"]
+      grade = gradelist[index]
 
-    print( name + ", your final score is " + str(correct) + " / 10")
-    print( "Your grade is:" + grade)
-application()
-continueplaying = True
-while continueplaying:
-    print("")
-    print("Select an option!")
-    print("1) Play again")
-    print("2) Quit")
-    n = input("")
-    try:
-        n = int(n)
-        if n == 1:
-            application()
-        elif n == 2:
-            print("Goodbye!")
-            continueplaying = False
-        else:
-            print("Invalid input; Only enter \"1\" or \"2\".")
+      print( name + ", your final score is " + str(correct) + " / 10")
+      print( "Your grade is:" + grade)
+      application()
+      continueplaying = True
+      while continueplaying:
             print("")
-    except ValueError:
-        print("Invalid input; Only enter \"1\" or \"2\".")
-        print("")
+            print("Select an option!")
+            print("1) Play again")
+            print("2) Quit")
+            n = input("")
+            try:
+              n = int(n)
+              if n == 1:
+                  application()
+              elif n == 2:
+                  print("Goodbye!")
+                  continueplaying = False
+              else:
+                  print("Invalid input; Only enter \"1\" or \"2\".")
+                  print("")
+            except ValueError:
+              print("Invalid input; Only enter \"1\" or \"2\".")
+              print("")
+
 

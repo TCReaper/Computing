@@ -15,5 +15,6 @@ def wordswitch():
 
 
 while True:
+        print("\n"*10)
         n = input("Sentence:   ")
         wordswitch()

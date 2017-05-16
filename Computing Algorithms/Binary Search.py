@@ -7,7 +7,7 @@ def generate():
         global n
         global data
         while len(data) < n:
-                temp = random.randint(0, n)
+                temp = random.randint(0, n**2)
                 if temp in data:
                         continue
                 else:

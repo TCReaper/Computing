@@ -20,17 +20,17 @@ def multiply(multiplier, multiplicand):
                                 multiplier = multiplicand
                                 multiplicand = temp
                                 
-#                else:
-#                       if multiplicand < 0:
+                else:
+                        if multiplicand < 0:
                           # +a * -b
-#                               continue
-#                       else:
+                                pass
+                        else:
                           # +a * +b
-#                                continue
+                                pass
 
                 return multiplicand + multiply(multiplier - 1, multiplicand)
 
-continute_processing = True
+continute_processing = False
 while continute_processing:
         print(" ")
         print(" ")
@@ -41,4 +41,5 @@ while continute_processing:
         print(" ")
         c = input("Continue?   Y/N:    ")
         if c.lower() in ["n", "no"]:
+                print("End.")
                 continute_processing = False

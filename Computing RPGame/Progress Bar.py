@@ -9,3 +9,11 @@ def loading():
             print("||",end="")
             time.sleep(random.uniform(0.33,1.33))
       print("")
+
+
+
+def student():
+      in_computing = True
+      while in_computing:
+            want_to_die = True
+            

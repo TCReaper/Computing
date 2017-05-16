@@ -7,7 +7,7 @@ import pygame
 
 sys.setrecursionlimit(3011)
 
-counter = 197704
+counter = 231250
 
 def count():
         try:

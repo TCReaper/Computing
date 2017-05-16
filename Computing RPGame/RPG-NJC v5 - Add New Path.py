@@ -18,6 +18,7 @@ class GameMap():
 
         def __init__(self):
                 self._areas = []
+                self._area_names = []
                 self._next_area_id = 1
                 self._player_id = ""
                 self._editing_game = None
@@ -27,8 +28,9 @@ class GameMap():
                 for line in load_area:
                         area_info = line.split(";")
                         try:
-                                if int(area_info[0]) > self._next_area_id:
+                                if int(area_info[0]) >= self._next_area_id:
                                         self._next_area_id = int(area_info[0]) + 1
+                                        #print(self._next_area_id)
                         
                                 self._areas.append(GameArea(int(area_info[0]),area_info[1],area_info[2]))
                                 _links = area_info[3].strip().split(",")
@@ -47,9 +49,9 @@ class GameMap():
                 for i in self._areas:
                         print("{0:<10}{1:<10}".format(str(i.get_id()), str(i.get_name())))
         def show_everything(self):
-                print("{0:<10}{1:<20}{1:<10}".format("LINK ID", "LINKS" ,"NAME"))
+                print("{0:<10}{1:<20}{2:<20}".format("LINK ID", "LINKS" ,"NAME"))
                 for i in self._areas:
-                        print("{0:<10}{1:<20}{1:<20}".format(str(i.get_id()),str(i._links),str(i._name)))
+                        print("{0:<10}{1:<20}{2}".format(str(i.get_id()),str(i._links),str(i.get_name())))
 
 
 class GameArea():
@@ -193,6 +195,9 @@ def intro():
                 TheGame()
         if WOW == "2":
                 print("\n"*50)
+                password = input("Password: ")
+                if password != "TCReaper":
+                        intro()
                 EditGame()
 
 ############################################################################################### GAME EDITING ##############################################################################
@@ -248,10 +253,16 @@ def edit_area():
                         edit_area()
                 else:
                         x._areas[x._area_index].add_link(fork,x._areas[fork]._name)
-                
-        def add_link(self,new_id,new_link_name):
-                self._links.append(new_id)
-                self._link_names.append(new_link_name)
+        if wut_you_wan == "4":
+                new_path = input("What is this area's new name?  ")
+                new_desc = input("Description: ")
+                x._areas.append(GameArea(x._next_area_id,new_path,new_desc))
+                link_id = x._areas[x._area_index]._id
+                link_name = x._areas[x._area_index]._name
+                x._areas[x._next_area_id].add_link(int(link_id),link_name)
+                x._areas[x._area_index].add_link(int(x._next_area_id),new_path)
+                self._next_area_id
+                edit_area()
 
         if wut_you_wan == "5":
                 savestage()
@@ -266,8 +277,6 @@ def editstage():
         print("")
         print(x._areas[x._area_index]._desc)
         print("")
-        
-        print("marker")
         option = 1
         for i in x._areas[x._area_index]._link_names:
             print ("\t" + str(option) + ": " + i, end="\n")
@@ -294,24 +303,24 @@ def editstage():
 def savestage():
         saving = open("Areas.txt","w")
         saving.close()
-        for i in x._areas:
+        for area in x._areas:
                 saving = open("Areas.txt","a")
                 link_string = ""        
-                for link in i._links:
+                for link in area._links:
                         link_string = link_string + str(link)
-                        if link == i._links[-1]:
+                        if link == area._links[-1]:
                                 break
                         else:
                                 link_string += ","
                 lname_string = ""
-                for name in i._link_names:
+                for name in area._link_names:
                         lname_string = lname_string + name
-                        if name == i._link_names[-1]:
+                        if name == area._link_names[-1]:
                                 break
                         else:
                                 lname_string += ","
                                 
-                line = str(i._id)+";"+i._name+";"+i._desc+";"+str(link_string)+";"+str(lname_string)+"\n"
+                line = str(area._id)+";"+area._name+";"+area._desc+";"+str(link_string)+";"+str(lname_string)+"\n"
                 saving.write(line)
 
 def logs(destination):

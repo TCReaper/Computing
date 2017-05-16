@@ -34,7 +34,7 @@ def downsig():
         pyautogui.press('c')
         time.sleep(0.75)
         pyautogui.keyDown('s')
-        pyautogui.press('x')
+        pyautogui.press('t')
         pyautogui.keyUp('s')
         time.sleep(1)
         pyautogui.press('a')
@@ -42,17 +42,17 @@ def downsig():
         pyautogui.press('c')
         time.sleep(0.5)
         pyautogui.keyDown('s')
-        pyautogui.press('x')
+        pyautogui.press('t')
         pyautogui.keyUp('s')
         time.sleep(1)
         downsig()
 
 def phaseddsig():
         pyautogui.press('w')
-        time.sleep(0.05)
+        time.sleep(0.2)
         pyautogui.press('z')
         pyautogui.keyDown('s')
-        time.sleep(0.05)
+        time.sleep(0.2)
         pyautogui.press('x')
         pyautogui.keyUp('s')
         
@@ -60,4 +60,4 @@ def phaseddsig():
         phaseddsig()
         
 time.sleep(3)
-phaseddsig()
+downsig()

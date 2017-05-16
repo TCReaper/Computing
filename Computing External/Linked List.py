@@ -15,6 +15,7 @@ class node():
 class linkedlist():
         def __init__(self):
                 self._root = None
+                self._next = None
         def insert(self,data):
                 if self._root == None:
                         self._root = node(data)
@@ -24,4 +25,5 @@ class linkedlist():
                                 current_node = current_node.get_next()
                         current_node.set_node(node(data))
 
-                        
+
+

@@ -15,6 +15,6 @@ while timerfunction:
         n = raw_input("Please Click")
         end = datetime.datetime.now()
         second = (end-start).total_seconds()
-        print str(second) + " seconds or ", str((second/60))[:4], " minutes"
+        print str(second) + " seconds or ", str((second/60)), " minutes"
 
         print

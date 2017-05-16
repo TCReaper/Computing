@@ -12,7 +12,8 @@ def snail():
                 enter = "{ENTER}"
                 ctypes.windll.user32.mouse_event(2, 0, 0, 0,0) # left down
                 ctypes.windll.user32.mouse_event(4, 0, 0, 0,0) # left up
-                time.sleep(13)
+                time.sleep(18)
+                
                 SendKeys.SendKeys(farmer)
                 SendKeys.SendKeys(enter)
                 

@@ -6,7 +6,7 @@ import sys
 import random
 
 
-binary = 1100101110110
+binary = 0
 number = int(str(binary), 2)
 
 

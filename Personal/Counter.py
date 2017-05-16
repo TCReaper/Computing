@@ -3,12 +3,11 @@ import time
 import random
 import sys
 from msvcrt import getch
-import pygame
+import pyperclip
 
 sys.setrecursionlimit(3344)
 
-counter = 202281
-
+counter = 235901
 
 def count():
 
@@ -18,14 +17,17 @@ def count():
                 
                 enter = "{ENTER}"
                 time.sleep(0.8)
-                humandelay = random.uniform(0.1, 0.9) + \
-                             random.uniform(0.2, 0.7) + \
-                             random.uniform(0.2, 0.6) + \
-                             random.uniform(0, 0.5)
+                SendKeys.SendKeys(str(counter)[0])
+                humandelay = random.uniform(0.4, 1.9) + \
+                             random.uniform(0.3, 1.9) + \
+                             random.uniform(0.5, 0.9) + \
+                             random.uniform(0, 3.5)
                 time.sleep(int(humandelay))
-                SendKeys.SendKeys(str(counter))
+                SendKeys.SendKeys(str(counter)[1:])
                 SendKeys.SendKeys(enter)
+                pyperclip.copy(str(counter))
                 counter += 1
+                
 
 
         except Exception, e:
