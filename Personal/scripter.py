@@ -8,6 +8,9 @@ def wordswitch():
         for i in n:
                 if i == " ":
                         final = final + "\t" + "\t"
+                elif i in [' ',':',',','.','/','\'',']','[',';','-','_','=','+','~','`',
+               '|','!','@','#','$','%','^','&','*','(',')']:
+                        final = final + i
                 else:
                         i = i.lower()
                         final = final + ":regional_indicator_" + i + ": "
@@ -16,5 +19,5 @@ def wordswitch():
 
 while True:
         print("\n"*10)
-        n = input("Sentence:   ")
+        n = str(input("Sentence:   "))
         wordswitch()

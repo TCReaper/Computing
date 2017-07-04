@@ -1,63 +1,96 @@
 import time
-import sys
 import pyautogui
 
-# brawl bot brute force
+# brawl bot
+# by TCReaper
+
+
+
+#### please make sure that the module       >> pyautogui <<       is installed
+
+
+
+#### CHANGE USER SETTINGS HERE ###############################################
+
+up_key = 'w'
+down_key = 's'
+left_key = 'a'
+right_key = 'd'
+
+heavy = 'u'
+light = 'y'
+shift = 'q'
+
+selected_move = 'nsig' #change this to the attack you want
+
+#### OPTIONS --> groundpound , sidesig , downsig , nsig 
+
+
+#### CODE ####################################################################
 
 def groundpound():
-        pyautogui.press('w')
-        pyautogui.press('w')
-        pyautogui.keyDown('s')
-        pyautogui.press('x')
-        pyautogui.keyUp('s')
+        pyautogui.press(up_key)
+        pyautogui.press(up_key)
+        pyautogui.keyDown(down_key)
+        pyautogui.press(heavy)
+        pyautogui.keyUp(down_key)
         time.sleep(0.2)
-        pyautogui.press('w')
+        pyautogui.press(up_key)
         time.sleep(0.1)
-        pyautogui.press('x')
+        pyautogui.press(heavy)
         time.sleep(1.5)
         groundpound()
 
 def sidesig():
-        pyautogui.keyDown('a')
-        pyautogui.press('x')
-        pyautogui.keyUp('a')
+        pyautogui.keyDown(left_key)
+        pyautogui.press(heavy)
+        pyautogui.keyUp(left_key)
         time.sleep(2)
-        pyautogui.keyDown('d')
-        pyautogui.press('x')
-        pyautogui.keyUp('d')
+        pyautogui.keyDown(down_key)
+        pyautogui.press(heavy)
+        pyautogui.keyUp(down_key)
         time.sleep(2)
         sidesig()
 
 def downsig():
-        pyautogui.press('d')
+        pyautogui.press(down_key)
         time.sleep(0.5)
-        pyautogui.press('c')
+        pyautogui.press(light)
         time.sleep(0.75)
-        pyautogui.keyDown('s')
-        pyautogui.press('t')
-        pyautogui.keyUp('s')
+        pyautogui.keyDown(down_key)
+        pyautogui.press(heavy)
+        pyautogui.keyUp(down_key)
         time.sleep(1)
-        pyautogui.press('a')
+        pyautogui.press(left_key)
         time.sleep(0.5)
-        pyautogui.press('c')
+        pyautogui.press(light)
         time.sleep(0.5)
-        pyautogui.keyDown('s')
-        pyautogui.press('t')
-        pyautogui.keyUp('s')
+        pyautogui.keyDown(down_key)
+        pyautogui.press(heavy)
+        pyautogui.keyUp(down_key)
         time.sleep(1)
         downsig()
 
 def phaseddsig():
-        pyautogui.press('w')
+        pyautogui.press(up_key)
         time.sleep(0.2)
-        pyautogui.press('z')
-        pyautogui.keyDown('s')
+        pyautogui.press(shift)
+        pyautogui.keyDown(down_key)
         time.sleep(0.2)
-        pyautogui.press('x')
-        pyautogui.keyUp('s')
-        
+        pyautogui.press(heavy)
+        pyautogui.keyUp(down_key)
         time.sleep(2)
         phaseddsig()
-        
+
+def nsig():
+        pyautogui.press(heavy)
+        time.sleep(1)
+        nsig()
+
+
+
+func_list = {'groundpound':groundpound,'sidesig':sidesig,'downsig':downsig,'nsig':nsig}
+
+
 time.sleep(3)
-downsig()
+func_list[selected_move]()
