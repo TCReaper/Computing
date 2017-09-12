@@ -1,0 +1,155 @@
+001 Kimchi Pickles $3.90
+002 Doo Boo Kimchi $4.90
+003 Age Tofu $4.90
+004 Edamame $3.90
+005 Baby Octopus $4.90
+006 Seaweed $4.90
+007 Scallop $5.90
+008 Jellyfish $5.90
+009 Assorted Cold Dish $9.90
+010 Spring Roll $4.90
+011 Gyoza $4.90
+012 Takoyaki $5.90
+013 Chicken Wings $6.90
+014 Shisamo Fried $5.90
+015 Yakitori $4.90
+016 Cawanmushi $3.90
+017 Miso Soup $1.20
+018 Rice $1.20
+019 Vegetable Curry $6.90
+020 Chicken Curry $8.90
+021 Ebi Curry $8.90
+022 Beef Curry $8.90
+023 Torikatsu Set $7.90
+024 Fried Chicken Set $7.90
+025 Ebi Fried Set $8.90
+026 Salmon Fry Set $8.90
+027 Saba Set $8.90
+028 Salmon Teriyaki Set $10.90
+029 Tempura Set $10.90
+030 Unagi Set $13.90
+031 Chicken Teriyaki Set $8.90
+032 Beef Teriyaki Set $9.90
+033 Chicken Bulgogi Set $9.90
+034 Beef Bulgogi Set $10.90
+035 Pork Bulgogi Set $10.90
+036 Kimchi Set $11.90
+037 Mix Fry & Sushi Set $13.90
+038 Torikatsu Sashimi Set $14.90
+039 Unagi Sushi Set $16.90
+050 Unagi Sashimi Set $18.90
+051 Sake Sashimi Don $10.90
+052 Tekka Don $11.90
+053 Sashimi Moriwase Don $15.90
+054 Chicken Teriyaki Don $7.90
+055 Beef Teriyaki Don $8.90
+056 Chicken Bulgogi Don $8.90
+057 Beef Bulgogi Don $9.90
+058 Pork Bulgogi Don $9.90
+059 Salmon Teriyaki Don $9.90
+040 Unagi Don $12.90
+041 Bibimbab Chicken $9.90
+042 Bibimbab Beef $10.90
+043 Bibimbap Pork $10.90
+044 Torikatsu Don $7.90
+045 Oyako Don $8.90
+046 Gyu Don $9.90
+047 Tamago Sushi $2.90
+048 Inari Sushi $2.90
+049 Sake Sushi $3.90
+060 Tai Sushi $3.90
+061 Tako Sushi $3.90
+062 Mekajiki Sushi $4.90
+063 Maguro Sushi $4.90
+064 California Temaki $3.90
+065 Tamago Temaki $3.90
+066 Kani Temaki $3.90
+067 Lidako Temaki $4.90
+068 Sake Temaki $4.90
+069 Maguro Temaki $4.90
+070 Spider Temaki $5.90
+071 Tobiko Temaki $5.90
+072 Shitake Tempura $3.90
+073 Soft Shell Crab $9.90
+074 Tempura Moriwase $9.90
+075 Ebi Tempura $11.90
+076 Saba Shioyaki $6.90
+077 Salmon Kama Shio $9.90
+078 Salmon Teriyaki $8.90
+079 Unagi $11.90
+080 Chicken Karaage $6.90
+081 Torikatsu $6.90
+082 Ebi Fried $6.90
+083 Chicken Teriyaki $6.90
+084 Beef Teriyaki $7.90
+085 Chicken Bulgogi $7.90
+086 Beef Bulgogi $8.90
+087 Pork Bulgogi $8.90
+088 Kimchi Chigay $9.90
+089 Dwenjang Chigay $9.90
+090 Sumgyetang $11.90
+091 Seafood Soup $12.90
+092 Tempura Udon $10.90
+093 Tempura Ramen $10.90
+094 Seafood Udon $12.90
+095 Seafood Ramen $12.90
+096 Unagi Udon $12.90
+097 Unagi Ramen $12.90
+098 Salmon Teriyaki Udon $9.90
+099 Salmon Teriyaki Ramen $9.90
+100 Chicken Teriyaki Udon $7.90
+101 Chicken Teriyaki Ramen $7.90
+102 Beef Teriyaki Udon $8.90
+103 Beef Teriyaki Ramen $8.90
+104 Chicken Bulgogi Udon $8.90
+105 Chicken Bulgogi Ramen $8.90
+106 Beef Bulgogi Udon $9.90
+107 Beef Bulgogi Ramen $9.90
+108 Kimchi Udon $9.90
+109 Kimchi Ramen $9.90
+110 Shitake Udon $6.90
+111 Shitake Ramen $6.90
+112 Yasai Udon $5.90
+113 Yasai Ramen $5.90
+114 Gyoza Udon $5.90
+115 Gyoza Ramen $5.90
+116 Tsukimi Udon $5.90
+117 Tsukimi Ramen $5.90
+118 Kake Udon $5.90
+119 Kake Ramen $5.90
+120 Kitsune Udon $5.90
+121 Kitsune Ramen $5.90
+122 Cha Soba $6.90
+123 Tokyo Soyu Ramen $7.90
+124 Hokkaido Miso Ramen $8.90
+125 Kyushu Tonkatsu Ramen $9.90
+126 Chicken Cutlet Ramen $8.90
+127 Fried Chicken Ramen (Soup) $8.90
+128 Fried Chicken Ramen (Dry) $9.90
+129 Beef Ramen $10.90
+130 Mix Mushroom Ramen $7.90
+131 Sake Sashimi $9.90
+132 Sake Toro Sashimi $13.90
+133 Shime Saba Sashimi $9.90
+134 Tai Sashimi $9.90
+135 Tako Sashimi $11.90
+136 Maguro Sashimi $13.90
+137 Mekajiki Sashimi $15.90
+138 Tamago Sashimi $6.90
+139 Sashimi Moriwase $19.90
+150 Sashimi Jyo $29.90
+151 Sashimi Ume $49.90
+152 Kappa Maki $3.90
+153 Kani Maki $3.90
+154 Oshinko Maki $3.90
+155 Kampyo Maki $3.90
+156 Tamago Maki $3.90
+157 Sake Maki $4.90
+158 Tekka Maki $4.90
+159 Unagi Maki $4.90
+160 Rainbow Maki $9.90
+161 Ura Maki $9.90
+162 Futo Maki $9.90
+163 California Maki $5.90
+164 Tempura Maki $11.90
+165 Spider Maki $11.90
