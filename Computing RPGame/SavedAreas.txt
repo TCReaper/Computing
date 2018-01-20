@@ -1,5 +1,5 @@
 0;Oasis;==The Temporary Refuge==;1;Linkway
-1;Linkway;==Bricks, And More Bricks==;0,2,3;Oasis,Canteen,Aesthetics Block
+1;Linkway;==Bricks, And More Bricks==;0,2,3,11;Oasis,Canteen,Aesthetics Block,Atrium
 2;Canteen;==Long Queues No Time==;1,4;Linkway,Canteen Stairs
 3;Aesthetics Block;==For The Autistic==;1;Linkway
 4;Canteen Stairs;==A Clocktower Can Be Seen==;2,5,6,7,8;Canteen,Gym,Squash Court,Grandstand,Banner Painting Area
@@ -9,3 +9,7 @@
 8;Banner Painting Area;==Is That Blood Or Red Paint==;4,7,9,10;Canteen Stairs,Grandstand,Track,Aircon Gym
 9;Track;==IT'S ALL IN MY SHOE==;7,8;Grandstand,Banner Painting Area
 10;Aircon Gym;==Ventilated Sweat Smells==;7,8;Grandstand,Banner Painting Area
+11;Atrium;==Exuberance==;1,12,13,14;Linkway,Staff Room,General Office,Podium
+12;Staff Room;==Where Was The Letter Tray Again?==;11;Atrium
+13;General Office;==Brrrt.. Brrrt..==;11;Atrium
+14;Podium;==Look At All The Little People==;11;Atrium

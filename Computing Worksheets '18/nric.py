@@ -46,7 +46,11 @@ def input_nric():
                   
       print(nric.upper())
 
+# task 1b
 
+testset = ['T0040067F','S1681944A','T0000661B',
+           'T0001507A','T0059197J','G1444444K',
+           'T0012574F','T0078219E','S1648379P']
 
 # task 1c
 
@@ -106,50 +110,58 @@ class BST():
             self._root = None
 
       def insert(self,data):
+            #print(      type(data)        )
             if self._root == None:
                   self._root = Node(data)
             else:
                   current_node = self._root
                   while True:
-                        if data < current_node.data():
+                        #print(type(current_node))
+                        if data < current_node.get_data():
                               if current_node._left == None:
                                     current_node.set_left( Node(data) ) 
                                     break
                               else:
-                                    current_node = current_node._left
+                                    current_node = current_node.left()
                         else:
                               if current_node._right == None:
                                     current_node.set_right( Node(data) )
                                     break
                               else:
-                                    current_node = current_node.right
-      def in_call(self):
+                                    current_node = current_node.right()
+      def print_in(self):
             branch = self._root
             self.in_order(branch)
+      def print_pre(self):
+            branch = self._root
+            self.pre_order(branch)
+      def print_post(self):
+            branch = self._root
+            self.post_order(branch)
             
       def in_order(self, branch):
             if branch == None:
                   pass
             else:
                   self.in_order(branch.left())
-                  print(branch.data())
+                  print(branch.get_data())
                   self.in_order(branch.right())
 
-      def pre_order(self, tree):
-            if tree == None:
+      def pre_order(self, branch):
+            if branch == None:
                   pass
             else:
-                  print(tree.data())
-                  self.in_order(tree.left())
-                  self.in_order(tree.right())
+                  print(branch.get_data())
+                  self.in_order(branch.left())
+                  self.in_order(branch.right())
 
-      def post_order(self, tree):
-            if tree == None:
+      def post_order(self, branch):
+            if branch == None:
                   pass
             else:
-                  self.in_order(tree.left())
-                  self.in_order(tree.right())
-                  print(tree.data())
+                  self.in_order(branch.left())
+                  self.in_order(branch.right())
+                  print(branch.get_data())
 
 
 class Node():
@@ -157,12 +169,12 @@ class Node():
             self._data = data
             self._left = None
             self._right = None
-      def data(self):
+      def get_data(self):
             return self._data
       def left(self):
-            return self._left._data
+            return self._left
       def right(self):
-            return self._right._data
+            return self._right
       def set_left(self,new_node):
             self._left = new_node
       def set_right(self,new_node):
@@ -191,10 +203,16 @@ def script():
             g.close()
 
       for entry in NRICs:
+            #print(entry)
             BooSTed.insert(entry)
 
-      #BooSTed.pre_order()
-      BooSTed.in_call()
-      BooSTed.post_order()
+      
+
+
+      BooSTed.print_pre()
+      print('\n')
+      BooSTed.print_in()
+      print('\n')
+      BooSTed.print_post()
             
       

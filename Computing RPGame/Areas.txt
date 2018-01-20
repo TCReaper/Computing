@@ -1,5 +1,5 @@
 0;Oasis;==The Temporary Refuge==;1;Linkway
-1;Linkway;==Bricks, And More Bricks==;0,2,3;Oasis,Canteen,Aesthetics Block
+1;Linkway;==Bricks, And More Bricks==;0,2,3,15;Oasis,Canteen,Aesthetics Block,Atrium
 2;Canteen;==Long Queues No Time==;1,4;Linkway,Canteen Stairs
 3;Aesthetics Block;==For The Autistic==;1,11,12,13,14;Linkway,Guitar Room,Dance Studio 3,Chinese Orchestra Room,Black Box
 4;Canteen Stairs;==A Clocktower Can Be Seen==;2,5,6,7,8;Canteen,Gym,Squash Court,Grandstand,Banner Painting Area
@@ -13,3 +13,7 @@
 12;Dance Studio 3;==The Big Big Dance Studio==;3;Aesthetics Block
 13;Chinese Orchestra Room;==China Musics==;3;Aesthetics Block
 14;Black Box;==Rahul's Colour==;3;Aesthetics Block
+15;Atrium;==Exuberance==;1,16,17,18;Linkway,Staff Room,General Office,Podium
+16;Staff Room;==Where Was The Letter Tray Again?==;15;Atrium
+17;General Office;==Brrrt.. Brrrt..==;15;Atrium
+18;Podium;==Look At All The Little People==;15;Atrium

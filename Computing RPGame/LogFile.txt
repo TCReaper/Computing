@@ -1,0 +1,6 @@
+HAOSH moves from Guitar Room to Aesthetics Block
+HAOSH moves from Aesthetics Block to Linkway
+HAOSH moves from Linkway to Canteen
+HAOSH moves from Canteen to Linkway
+HAOSH moves from Linkway to Atrium
+HAOSH moves from Atrium to Staff Room
