@@ -5,7 +5,6 @@ ALPHABET = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
             'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
 punctuation = [' ',':',',','.','/','\'',']','[',';','-','_','=','+','~','`',
                '|','!','@','#','$','%','^','&','*','(',')']
-
 import pyperclip
 global sentence
 global temp
@@ -21,7 +20,7 @@ def get_letters():
 def ciphermenu():
       print(("#"*80+"\n\n"))
       sentence = None
-      options = [None,atbash,caesar,keyword,unicode,binary,hexadecimal]
+      options = [None,atbash,caesar,keyword]
       print("Cipher Options:")
       for i in options:
             if i == None:
@@ -33,64 +32,13 @@ def ciphermenu():
       while ciphering:
             ciph3r = options[int(input("Choose a cipher (INT):  "))]
             print(ciph3r(sentence))
-
             
-#################         FUNCTIONS         ############################
-
-def copycodeindented():
-
-      def samplefunction(sentence = None):
-            global alphabet
-            global ALPHABET
-            global punctuation
-            if sentence == None:
-                  sentence = input("Sentence to encrypt:    ")
-            output = ""
             
-            pyperclip.copy(output)
-            return output
-
-def hexadecimal(sentence = None):
-      global alphabet
-      global ALPHABET
-      global punctuation
-      if sentence == None:
-            sentence = input("Sentence to encrypt:    ")
-      output = ""
-      #help
-      pyperclip.copy(output)
-      return output
-
-def binary(sentence = None):
-      global alphabet
-      global ALPHABET
-      global punctuation
-      if sentence == None:
-            sentence = input("Sentence to encrypt:    ")
-      output = ""
-      for i in sentence:
-            output += str(bin( ord( i ) )[2:])
-            output += ' '
-      pyperclip.copy(output)
-      return output
-
-def unicode(sentence = None):
-      global alphabet
-      global ALPHABET
-      global punctuation
-      if sentence == None:
-            sentence = input("Sentence to encrypt:    ")
-      output = ""
-      for i in sentence:
-            output += str(ord(i))
-            output += ' '
-      pyperclip.copy(output)
-      return output
             
 def atbash(sentence = None):
       global alphabet
       global ALPHABET
-      global punctuation
+      global puncutation
       if sentence == None:
             sentence = input("Sentence to encrypt:    ")
       output = ""
@@ -110,7 +58,7 @@ def atbash(sentence = None):
 def caesar(sentence = None):
       global alphabet
       global ALPHABET
-      global punctuation
+      global puncutation
       if sentence == None:
             sentence = input("Sentence to encrypt:  ")
       shift_value = int(input("\nShift Value:  "))
@@ -135,7 +83,7 @@ def caesar(sentence = None):
 def keyword(sentence = None):
       global alphabet
       global ALPHABET
-      global punctuation
+      global puncutation
       global temp
       global TEMP
       if sentence == None:
