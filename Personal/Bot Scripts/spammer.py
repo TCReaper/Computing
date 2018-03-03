@@ -3,7 +3,7 @@ import time
 global counter
 
 counter = 1
-spammsg = "i_like_to_farm_xp_"
+spammsg = "spam_"
 
 
 def spam():

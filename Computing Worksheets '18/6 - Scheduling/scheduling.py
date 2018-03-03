@@ -94,8 +94,72 @@ class PriorityQueue(SLL):
       def __init__(self):
             super().__init__()
             
-                        
-            
+class PriorityQueueNode(Node):
+    def __init__(self, data, priority):
+        super().__init__(data)
+        self._priority = priority
+
+    def get_data(self):
+        return self._data
+
+    def print(self):
+        return self._data.print()
+
+    def get_priority(self):
+        return self._priority
+
+    def set_priority(self, new_priority):
+        self._priority = new_priority
+
+class PriorityQueue(SLL):
+    def __init__(self):
+        super().__init__()
+
+    def push(self, data, priority):
+        new = PriorityQueueNode(data, priority)
+        if self._root == None:
+            self._root = new
+            return True
+        else:
+            if new.get_priority() > self._root.get_priority():
+                new.set_next(self._root)
+                self._root = new
+                return True
+            else:
+                current = self._root
+                while current.get_next() != None:
+                    if new.get_priority() > current.get_next().get_priority():
+                        new.set_next(current.get_next())
+                        current.set_next(new)
+                        return True
+                    current = current.get_next()
+                current.set_next(new)
+                return True
+
+    def peek(self):
+        if self._root == None:
+            return None
+        else:
+            return self._root.get_data()
+
+    def pop(self):
+        if self._root == None:
+            return False
+        else:
+            self._root = self._root.get_next()
+            return True
+
+    def print(self):
+        print('PRIORITY QUEUE')
+        if self._root == None:
+            print('Empty')
+        else:
+            current = self._root
+            while current != None:
+                current.print()
+                current = current.get_next()
+        print()
+           
 
 
 
