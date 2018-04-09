@@ -16,11 +16,12 @@ def spam():
             time.sleep(1)
             SendKeys.SendKeys(message)
             SendKeys.SendKeys(enter)
+
             counter += 1
             
 
 
-      except Exception, e:
+      except Exception:
             print str("oops")
 
 spamming = True
