@@ -68,6 +68,7 @@ class LinkedList():
             return len(self._nodes)
 
       def sortByMark(self):
+            #just use a standard sorting algorithm?
             if self._head == -1:
                   return False
             else:
@@ -109,6 +110,9 @@ for line in f:
       line = line.strip().split('|')
       x.addInOrder(line[0],line[1])
 f.close()
+x.displayByMark()
+#i think ur ptrs r fked up
+
 
 
 
