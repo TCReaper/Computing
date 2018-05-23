@@ -1,0 +1,49 @@
+Different input devices enable you to enter data and programs into a computer in different ways.
+Keyboards and mice are the most common input devices.
+You can use a track ball in place of a mouse.
+A track ball is normally fixed to the keyboard of a notebook computer.
+A touch screen is a special monitor.
+You can touch the screen with your finger to select an option.
+Touch screens are commonly found in shopping centres, tourist information centres, bus interchanges, airports and hotels.
+Graphics tablets are commonly used by artists and designers.
+They have to use a special pen called a stylus.
+The pen works with the graphics tablet to produce drawings or designs on the screen.
+A scanner can be used to input printed text and pictures into a computer.
+The scanned text or image can be edited and used in desktop publishing.
+A scanner can be used with special software that can convert printed characters into computer data.
+This process is known as optical character recognition (OCR).
+The output from the computer is displayed in different formats using different output devices.
+A monitor is used to display output on screen.
+There are different types of printers such as dot-matrix printers, inkjet printers and laser printers.
+The printhead of a dot-matrix printer consists of a number of pins.
+During printing, the pins are pushed onto the ink-ribbon and the dot patterns printed on paper form the output.
+Dot-matrix printers can be used to print carbon copies of documents.
+One disadvantage of dot-matrix printers is that they are usually quite noisy.
+An inkjet printer sprays fine drops of ink on paper to provide good quality output.
+Printing in colour can be done by mixing inks of different colours.
+Inkjet printers are quiet and make copies relatively quickly.
+A laser printer uses laser beams to produce good quality output.
+Of the three types of printers, laser printers produce the highest quality output at the fastest speed.
+Plotters are commonly used to print large multicoloured drawings of high quality.
+These drawings include charts, architectural and technical drawings.
+Data in computers is stored in either the main memory or secondary storage media.
+It takes one byte of storage space to store one character such as the letter 'A'.
+The main memory of a computer is also known as random access memory (RAM).
+It is a working area for storing program instructions and data currently used by the central processing unit.
+It holds data temporarily.
+This means that the data stored in the main memory is lost when you switch off the computer.
+One important use of computers is that they can store data for future use.
+To keep programs and data permanently, you have to save them in secondary storage media.
+Data stored in secondary storage media, such as hard disks, floppy disks and CD-ROMs, is not lost when you switch off the computer.
+Data is read or written on a hard disk or a floppy disk by a disk drive.
+A disk drive is therefore an input device as well as an output device.
+A hard disk can store more data than a floppy disk.
+It is also faster to access data stored on hard disks than on floppy disks.
+However, hard disks are usually fixed to system units.
+Floppy disks allow you to use the data on other computers.
+A CD-ROM looks like a music CD.
+It can store 650 MB of data, which is about 450 times more than a 1.44 MB floppy disk.
+Data is recorded onto CD-ROMs by special machines in the CD-ROM manufacturing factory.
+The CD-ROM drive uses laser beams to read data on the CD-ROM.
+Users can only read the data stored on a CD-ROM but cannot write on it.
+This is why it is called CD Read-Only Memory (ROM).

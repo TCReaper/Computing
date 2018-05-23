@@ -10,7 +10,7 @@ files = os.listdir(path)      # retrives all files in specified path as array
 def write():
       for original in files:
             new = original
-            new = new.replace('.',' ').replace(',',' ').replace('_',' ')
+            new = new.replace('.',' ').replace(',',' ').replace('_',' ').replace(' mp4','')
             new = new.split('20')[0]
 
             os.rename(os.path.join(path,original), os.path.join(path,new+'.mp4'))
