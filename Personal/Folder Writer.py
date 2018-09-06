@@ -14,7 +14,7 @@ def write(replacer):
             new = original
             for element in replacer:
                   new = new.replace(element,' ')
-            os.rename(os.path.join(path,original), os.path.join(path,new+'.mp4'))
+            os.rename(os.path.join(path,original), os.path.join(path,new))
             print('Replaced!')
       return True
 

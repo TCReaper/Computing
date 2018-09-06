@@ -1,16 +1,4 @@
 
-lt = [5,4,3,2,1]
-
-sortz = 0
-while sortz<len(lt):
-        marked = lt[sortz]
-        #print(lt)
-        for i in range(sortz,len(lt)):
-                if lt[i] < marked:
-                        tp = [lt[i]]
-                        lt = lt[:sortz+1]+ tp  + lt[sortz+1:i] + lt[i+1:]      
-        sortz+=1
-        
 def qsort(arr):
         if len(arr) <= 1:
                 return arr
@@ -20,3 +8,18 @@ def qsort(arr):
 
 lt = [5,4,3,2,1]
 print(qsort(lt))
+
+
+def qsorts(arr):
+        if len(arr) < 2:
+                return arr
+        else:
+                pivot = arr[0]
+                less = []
+                more = []
+                for i in range(1, len(arr)):
+                        if arr[i] < pivot:
+                                less.append(arr[i])
+                        else:
+                                more.append(arr[i])
+                return qsorts(less) + [pivot] + qsorts(more)

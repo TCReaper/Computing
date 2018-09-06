@@ -1,7 +1,7 @@
 
 #       Bubble Sort
 
-listed = [12,45,1,62,3,62,51,4,152,36,24,3,47,5,5,45,253,523,52,1] # List of integers to sort
+listed = [76,47,6,4,54,34,98,3,5,48,6,5,37,94,24,82,1,3,59,89,4,6] # List of integers to sort
 
 for e in range(len(listed)):  # get max n times, each time excl. last max in A
         print(listed)

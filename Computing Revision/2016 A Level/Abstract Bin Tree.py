@@ -6,12 +6,14 @@ class Node():
             self._data = data
             self._leftPtr = None
             self._rightPtr = None
-      def setData(self,s):
-            self._data = s
-      def setLeftPtr(self,x):
-            self._leftPtr = x
-      def setRightPtr(self,y):
-            self._rightPtr = y
+            
+      def setData(self,data):
+            self._data = data
+      def setLeftPtr(self,ptr):
+            self._leftPtr = ptr
+      def setRightPtr(self,ptr):
+            self._rightPtr = ptr
+            
       def getData(self):
             return self._data
       def getLeftPtr(self):
@@ -23,8 +25,9 @@ class Node():
       
 class Tree():
       def __init__(self):
-            self._tree = []#array of node
+            self._tree = []
             self._root = -1
+            
       def add(self,newItem):
             if self._root == -1:
                   self._tree.append(Node(newItem))
@@ -65,11 +68,6 @@ class Tree():
             mid = self._tree[self._root] #mid is a Node()
             self.iOT(mid)
             
-      
-            
-      
-
-
 x = Tree()
 x.add('Dave')
 x.add('Fred')
