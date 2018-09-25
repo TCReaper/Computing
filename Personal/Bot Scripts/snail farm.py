@@ -8,7 +8,7 @@ sys.setrecursionlimit(10000)
 def snail():
         
         try:
-                farmer = "!snail{SPACE}race{SPACE}5"
+                farmer = "!s{SPACE}race{SPACE}5"
                 enter = "{ENTER}"
                 ctypes.windll.user32.mouse_event(2, 0, 0, 0,0) # left down
                 ctypes.windll.user32.mouse_event(4, 0, 0, 0,0) # left up
@@ -24,7 +24,7 @@ def snail():
 
 
 time.sleep(3)
-farmer = "!snail{SPACE}race{SPACE}5"
+farmer = "!sSPACE}race{SPACE}5"
 enter = "{ENTER}"
 ctypes.windll.user32.mouse_event(2, 0, 0, 0,0) # left down
 ctypes.windll.user32.mouse_event(4, 0, 0, 0,0) # left up
