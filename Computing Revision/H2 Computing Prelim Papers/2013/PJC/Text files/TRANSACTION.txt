@@ -1,0 +1,5 @@
+ProductID|QuantityOut
+KCA101|3
+CZO202|5
+ESR303|7
+GLP404|8

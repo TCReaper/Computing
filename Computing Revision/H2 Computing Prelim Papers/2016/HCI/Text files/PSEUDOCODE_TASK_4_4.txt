@@ -1,0 +1,37 @@
+PROCEDURE AddNode
+	INPUT NewItem
+	Node[NextFree].DataValue = NewItem	
+	
+	Temp = NextFree    
+	NextFree = Node[NextFree].PointerValue
+
+
+	# Traverse the list to find the position to insert the new item
+	Found = False
+	Current = Start
+	Previous = 0
+
+
+	WHILE NOT Found AND Current != 0
+		IF NewItem > Node[Current].DataValue
+			THEN
+				#  move on to the next node
+				Previous = Current
+				Current = Node[Current].PointerValue
+			ELSE
+				Found = True
+		ENDIF
+	ENDWHILE
+	
+
+	IF Previous = 0
+		THEN
+			#  new item will become the start of the list
+			Start = Temp
+			Node[Temp].PointerValue = Currrent
+		ELSE
+			#  new item is between previous and current
+			Node[Previous].PointerValue = Temp
+			Node[Temp].PointerValue = Currrent
+	ENDIF
+ENDPROCEDURE

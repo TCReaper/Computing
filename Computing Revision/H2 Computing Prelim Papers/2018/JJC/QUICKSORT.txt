@@ -1,0 +1,37 @@
+FUNCTION partition(MISSING CODE A):
+   pivotvalue = alist[first]
+
+   leftmark = MISSING CODE B
+   rightmark = last
+   done = FALSE
+
+   WHILE NOT done:
+       WHILE MISSING CODE C:
+           leftmark = leftmark + 1
+
+       WHILE alist[rightmark] >= pivotvalue AND rightmark >= leftmark:
+           rightmark = rightmark -1
+
+       IF MISSING CODE D:
+           done = TRUE
+       ELSE:
+           temp = alist[leftmark]
+           alist[leftmark] = alist[rightmark]
+           alist[rightmark] = temp
+
+   temp = alist[first]
+   alist[first] = alist[rightmark]
+   alist[rightmark] = temp	
+
+   RETURN MISSING CODE E
+
+
+FUNCTION quicksort(alist):
+   MISSING CODE F
+   
+
+FUNCTION quickSortHelper(alist,first,last):
+   IF MISSING CODE G:
+       MISSING CODE H
+       quickSortHelper(alist,first,splitpoint-1)
+       quickSortHelper(alist,splitpoint+1,last)

@@ -1,0 +1,11 @@
+ProductID|ProductName|QuantityInStock|Price|Weight
+ATT808|Arnotts Tim Tam Biscuits|69|3.95|200
+CBJ205|Calbee Jagabee|194|1.85|40
+CMS311|Camel Mixed Snack|122|1.22|150
+CZO202|Cheezel Original|85|2.65|165
+ESR303|Ego Swiss Roll|97|2.25|176
+FAP432|Farmer Peanut|321|1.70|120
+GLP404|Glico Pocky|88|2.50|70
+KCA101|Kraft Chip Ahoy|103|3.40|266
+MHP505|Meiji Hello Panda Biscuits|167|0.95|50
+TSC311|Tai Sun Cocktail Nuts|59|2.85|140

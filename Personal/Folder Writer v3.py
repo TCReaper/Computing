@@ -15,7 +15,7 @@ def change(filename):
                 os.path.join(path,new))
       print('Success!\n')
 
-def autochange(filename,changes):
+def autochange(filename,changes,path):
       store = filename
       for pair in range(len(changes)):
             group = changes[pair]
@@ -28,43 +28,47 @@ def autochange(filename,changes):
       else:
             print('{0} changed to {1}'.format(store,filename))
       
-      
-manual=False
-auto=False
-query = input('Manual/Auto Writing [m/a]:  ')
-if query == 'm':
-      manual = True
-elif query == 'a':
-      auto = True
 
-if manual:
-      path = input('Enter path:  ')
-      files = os.listdir(path)
-      # retrives all files in specified path as array
-      editing = []
-      extension = input('Enter extension to edit:  ').replace('.','')
-      for file in range(len(files)):
-            if files[file].split('.')[-1] == extension:
-                change(files[file])
-            else:
-                if extension == '':
+def function():
+      manual=False
+      auto=False
+      query = input('Manual/Auto Writing [m/a]:  ')
+      if query == 'm':
+            manual = True
+      elif query == 'a':
+            auto = True
+
+      if manual:
+            path = input('Enter path:  ')
+            files = os.listdir(path)
+            # retrives all files in specified path as array
+            editing = []
+            extension = input('Enter extension to edit:  ').replace('.','')
+            for file in range(len(files)):
+                  if files[file].split('.')[-1] == extension:
                       change(files[file])
-                
-if auto:
-      path = input('Enter path:  ')
-      files = os.listdir(path)
-      changes = []
-      
-      while True:
-            change = input('Type in string to replace [None to end]:  ')
-            if change == 'None':
-                  break
-            replacer = input('Type in string to replace with:  ')
-            changes.append([change,replacer])
+                  else:
+                      if extension == '':
+                            change(files[file])
+                      
+      if auto:
+            path = input('Enter path:  ')
+            files = os.listdir(path)
+            changes = []
 
-      for file in range(len(files)):
-            autochange(files[file],changes)
+            print('Example file: {0}'.format(files[0]))
+            while True:
+                  change = input('Type in string to replace [None to end]:  ')
+                  if change == 'None':
+                        break
+                  replacer = input('Type in string to replace with:  ')
+                  changes.append([change,replacer])
 
-            
+            for file in range(len(files)):
+                  autochange(files[file],changes,path)
+
+
+function()
+print('\n\n function() to continue')
 
 
