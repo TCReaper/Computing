@@ -2,6 +2,8 @@
 
 # :regional_indicator_c: :regional_indicator_o: :regional_indicator_d: :regional_indicator_e:
 
+import pyperclip
+
 def wordswitch():
         global n
         final = ""
@@ -15,6 +17,7 @@ def wordswitch():
                         i = i.lower()
                         final = final + ":regional_indicator_" + i + ": "
         print(final)
+        pyperclip.copy(final)
 
 
 while True:
