@@ -55,13 +55,16 @@ def atbash(sentence = None):
       pyperclip.copy(output)
       return output
 
-def caesar(sentence = None):
+def caesar(sentence = None, key =None):
       global alphabet
       global ALPHABET
       global puncutation
       if sentence == None:
             sentence = input("Sentence to encrypt:  ")
-      shift_value = int(input("\nShift Value:  "))
+      if key == None:
+            shift_value = int(input("\nShift Value:  "))
+      else:
+            shift_value = key
       output = ""
       for letter in sentence:
             if letter in punctuation:
