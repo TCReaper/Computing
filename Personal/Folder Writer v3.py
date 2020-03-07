@@ -6,7 +6,7 @@
 
 import os
 
-def change(filename):
+def changer(filename,path):
       print(filename)
       new = input('New filename (with extension):  ')
       if new.lower() == 'skip':
@@ -46,10 +46,10 @@ def function():
             extension = input('Enter extension to edit:  ').replace('.','')
             for file in range(len(files)):
                   if files[file].split('.')[-1] == extension:
-                      change(files[file])
+                      changer(files[file],path)
                   else:
                       if extension == '':
-                            change(files[file])
+                            changer(files[file],path)
                       
       if auto:
             path = input('Enter path:  ')
