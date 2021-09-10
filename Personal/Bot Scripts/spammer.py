@@ -1,31 +1,12 @@
-import SendKeys
 import time
-global counter
+import pyautogui
 
-counter = 1
-spammsg = "spam_"
+def spam(): 
+      spam_msg = "did u"
+      pyautogui.write(spam_msg)
+      time.sleep(0.1)
+      pyautogui.press('enter')
 
-
-def spam():
-      print(counter)
-      try:
-            global counter
-            global limit
-            message = spammsg+str(counter)
-            enter = "{ENTER}"
-            time.sleep(1)
-            SendKeys.SendKeys(message)
-            SendKeys.SendKeys(enter)
-
-            counter += 1
-            
-
-
-      except Exception:
-            print str("oops")
-
-spamming = True
 time.sleep(3)
-while spamming:
+while True:
       spam()
-      time.sleep(0.9)

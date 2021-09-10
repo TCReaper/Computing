@@ -1,21 +1,28 @@
-
 import random
 import time
+import keyboard
 import pyautogui
 from copypasta import copypasta as c
 
 
 def delayx():
-    time = 17.5
+    time = 20.5
     for i in range(12):
         time += random.random()
     time -= random.randint(3,8)
     
     return time
 
-
-def functx():
-    x = input('input x range:  ')
+def togira():
+    time.sleep(0.25)
+    c('!find')
+    time.sleep(0.25)
+    c('!get')
+    
+def x(x=''):
+    if x == '':
+        x = input('input x range:  ')
+        
     if x == '':
         x = 75
         
@@ -27,101 +34,65 @@ def functx():
         c('owoh')
         time.sleep( delayx()//2 )
         c('owob')
-        c( str( x - i ))
+        time.sleep( delayx()//5 )
+        c('owo')
+        
+        #togira()
+        
+        print(str( x - i ))
 
-    c('done')
+    time.sleep(10)
+    c('owo')
 
 def delay():
-    time = 30
+    time = 20
     return time
 
-def memer(i):
-    time.sleep( delay() )
-    c('pls beg')            
-    time.sleep( 2 )
-    c('pls search')
+def keypress():
+    if keyboard.is_pressed('ctrl+space'):
+        return True
+
+def owo_multi():
+    try:
+        time.sleep(0.5)
+        c('owoh')
+        time.sleep(0.25)
+        c('owob')
+        time.sleep(0.25)
+        c('owo')
+    except pyautogui.FailSafeException:
+        time.sleep(0.1)
     
-    if i%10 == 10:
-        c('pls deposit all')
-            
+def bind():
+    while True:  
+        if keypress():
+            owo_multi()
 
+def auto():
+    while True:
+        x()
 
-functx()
+def owo():
+    while True:
+        if keyboard.is_pressed('w'):
+            #time.sleep(0.1)
+            pyautogui.press('enter')
 
-
-def delay():
-    time = 30
-    return time
-
-def memer(i):
-    time.sleep( delay() )
-    c('pls beg')            
-    time.sleep( 2 )
-    c('pls search')
-    
-    if i%10 == 9:
-        c('pls deposit all')
-
-    return None
-            
-def funct(x='a'):
-    
-    if x == '':
-        x = 9999
-        switch = False
-        
-    else:
-        x = 9999
-        switch = True
-        
-    for i in range(x):
-        
-        memer(i)
-        if switch:
-            pyautogui.keyDown('alt')
-            pyautogui.press('tab')
-            pyautogui.keyUp('alt')
-            memer(i)
-            pyautogui.keyDown('alt')
-            pyautogui.press('tab')
-            pyautogui.keyUp('alt')
-
-#funct()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def multi():
+    while True:
+        try:
+            if keyboard.is_pressed('w'):
+                pass
+                #pyautogui.press('enter')
+            elif keyboard.is_pressed('=+-'):
+                pyautogui.press('backspace')
+                pyautogui.press('backspace')
+                time.sleep(0.5)
+                c('.fl n')
+                c('.bt')
+            elif keypress():
+                owo_multi()
+                
+        except KeyboardInterrupt or FailSafeException:
+            break
 

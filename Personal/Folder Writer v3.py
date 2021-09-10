@@ -15,6 +15,15 @@ def changer(filename,path):
                 os.path.join(path,new))
       print('Success!\n')
 
+def randomer(filename,path):
+      import random
+      new = str(random.randint(99999,999999))+'.jpg'
+      if new.lower() == 'skip':
+            new = filename
+      os.rename(os.path.join(path,filename), \
+                os.path.join(path,new))
+      print('Success!\n')
+
 def autochange(filename,changes,path):
       store = filename
       for pair in range(len(changes)):
@@ -33,8 +42,12 @@ def function():
       manual=False
       auto=False
       query = input('Manual/Auto Writing [m/a]:  ')
+      if query == 'r':
+            manual = True
+            random = True
       if query == 'm':
             manual = True
+            random = False
       elif query == 'a':
             auto = True
 
@@ -46,7 +59,10 @@ def function():
             extension = input('Enter extension to edit:  ').replace('.','')
             for file in range(len(files)):
                   if files[file].split('.')[-1] == extension:
-                      changer(files[file],path)
+                        if random:
+                              randomer(files[file],path)
+                        else:
+                              changer(files[file],path)
                   else:
                       if extension == '':
                             changer(files[file],path)

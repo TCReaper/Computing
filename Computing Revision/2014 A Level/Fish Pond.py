@@ -33,7 +33,7 @@ def printlist(liSt):
       
 def fishies():
       init()
-      for i in range(3):
+      for i in range(1):
             new_cood = cood_gen()
             x = new_cood[0]
             y = new_cood[1]
@@ -89,7 +89,7 @@ def test():
 ##      feed_fishies()
 
 counter = 0
-for i in range(100000000):
+for i in range(100000):
       counter += test()
       #print('\n')
 print(counter)

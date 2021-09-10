@@ -78,13 +78,13 @@ def pokemon():
     
     time.sleep(5)
     for x in range(pages):
-        typer('p!pokemon '+str(x)+text)
+        typer('p!pokemon '+str(x+1)+text)
         time.sleep(0.25)
 
 
 def prune(pages):
     time.sleep(2.5)
-    typer('t@prune '+str(pages*3)+' @Pokécord#4503')
+    typer('t@prune '+str(pages*4)+' --user @Pokécord#4503')
     time.sleep(5)
     typer('t@prune '+str(pages*3)+' "p!market search"')
 
