@@ -1,4 +1,6 @@
-HS moves from Gym to Canteen Stairs
-HS moves from Canteen Stairs to Canteen
-HS moves from Canteen to Linkway
-HS moves from Linkway to Aesthetics Block
+HAOSH moves from Canteen to Linkway
+HAOSH moves from Linkway to Aesthetics Block
+HAOSH moves from Aesthetics Block to Guitar Room
+HAOSH moves from Guitar Room to Aesthetics Block
+HAOSH moves from Aesthetics Block to Black Box
+HAOSH moves from Black Box to Aesthetics Block
