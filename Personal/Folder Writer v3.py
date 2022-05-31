@@ -38,7 +38,7 @@ def autochange(filename,changes,path):
             print('{0} changed to {1}'.format(store,filename))
       
 
-def function():
+def fn():
       manual=False
       auto=False
       query = input('Manual/Auto Writing [m/a]:  ')
@@ -55,7 +55,6 @@ def function():
             path = input('Enter path:  ')
             files = os.listdir(path)
             # retrives all files in specified path as array
-            editing = []
             extension = input('Enter extension to edit:  ').replace('.','')
             for file in range(len(files)):
                   if files[file].split('.')[-1] == extension:
@@ -84,7 +83,7 @@ def function():
                   autochange(files[file],changes,path)
 
 
-function()
-print('\n\n function() to continue')
+fn()
+print('\n\n fn() to continue')
 
 
