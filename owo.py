@@ -6,20 +6,14 @@ from copypasta import copypasta as c
 
 
 def delayx():
-    time = 20.5
+    time = 28.5
     for i in range(12):
         time += random.random()
     time -= random.randint(3,8)
     
     return time
-
-def togira():
-    time.sleep(0.25)
-    c('!find')
-    time.sleep(0.25)
-    c('!get')
     
-def x(x=''):
+def ex(x=''):
     if x == '':
         x = input('input x range:  ')
         
@@ -70,7 +64,7 @@ def bind():
 
 def auto():
     while True:
-        x()
+        ex()
 
 def owo():
     while True:
