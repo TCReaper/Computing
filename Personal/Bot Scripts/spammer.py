@@ -1,12 +1,15 @@
 import time
 import pyautogui
 
-def spam(): 
-      spam_msg = "did u"
+def spam(nn=''): 
+      spam_msg = "weewooweewoo"+str(nn)
       pyautogui.write(spam_msg)
-      time.sleep(0.1)
       pyautogui.press('enter')
 
 time.sleep(3)
 while True:
+      break
       spam()
+
+for i in range(100):
+      spam(i)

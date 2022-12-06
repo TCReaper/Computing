@@ -1,6 +1,5 @@
-HAOSH moves from Canteen to Linkway
-HAOSH moves from Linkway to Aesthetics Block
-HAOSH moves from Aesthetics Block to Guitar Room
-HAOSH moves from Guitar Room to Aesthetics Block
-HAOSH moves from Aesthetics Block to Black Box
-HAOSH moves from Black Box to Aesthetics Block
+VIMAL moves from Black Box to Aesthetics Block
+VIMAL moves from Aesthetics Block to Linkway
+VIMAL moves from Linkway to Canteen
+VIMAL moves from Canteen to Canteen Stairs
+VIMAL moves from Canteen Stairs to Grandstand
