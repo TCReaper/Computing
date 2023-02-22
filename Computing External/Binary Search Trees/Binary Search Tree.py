@@ -4,50 +4,180 @@ class BST():
       def __init__(self):
             self._root = None
 
-      def insert(self,data):
+      def insert(self,ndata):
             if self._root == None:
-                  self._root == Node(data)
+                  self._root = Node(ndata,None)
             else:
                   current_node = self._root
                   while True:
-                        if data < current_node.data():
-                              if current_node._left == None:
-                                    current_node.set_left( Node(data) ) 
+                        if ndata < current_node.data():
+                              if current_node.left() == None:
+                                    current_node.set_left( Node(ndata,current_node) ) 
                                     break
                               else:
-                                    current_node = current_node._left
+                                    current_node = current_node.left()
                         else:
-                              if current_node._right == None:
-                                    current_node.set_right( Node(data) )
+                              if current_node.right() == None:
+                                    current_node.set_right( Node(ndata,current_node) )
                                     break
                               else:
-                                    current_node = current_node.right
-                                    
-      def in_order(self, tree):
-            if tree == None:
-                  pass
+                                    current_node = current_node.right()
+
+      def find(self,node_key):
+            current_node = self._root
+            while True:
+                  try:
+                        if current_node.data() == node_key:
+                              return current_node
+
+                        if node_key < current_node.data():
+                              current_node = current_node.left()
+                        else:
+                              current_node = current_node.right()
+                  except:
+                        print('node not found')
+                        return None
+                  finally:
+                        pass
+      
+      def set_parents(self):
+            start = self._root
+            self._root.set_parent(None)
+            self._parentset(start.left(),start)
+            self._parentset(start.right(),start)
+
+      def _parentset(self,node=None,parent=None):
+            node.set_parent(parent)
+            if node.left() is not None:
+                  self._parentset(node.left(),node)
+            if node.right() is not None:
+                  self._parentset(node.right(),node)
+            
+
+
+      def left_rotate(self,node_key):
+            node = self.find(node_key)
+            if node is None:
+                  return 'Failed'
+            if node.parent() is None:
+                  self._root = node.right()
+                  node.set_right(self._root.left())
+                  self._root.set_left(node)
             else:
-                  self.in_order(tree.left())
-                  print(tree.data())
-                  self.in_order(tree.right())
+                  parent_node = node.parent()
+                  parent_node.set_left(node.right())
+                  node.set_right(node.right().left())
+                  parent_node.left().set_left(node)
+            self.set_parents()
+            print('=== left rotate on node {}'.format(node_key))
+            self.display()
+
+      def right_rotate(self,node_key):
+            node = self.find(node_key)
+            if node is None:
+                  return 'Failed'
+            if node.parent() is None:
+                  self._root = node.left()
+                  node.set_left(self._root.right())
+                  self._root.set_right(node)
+            else:
+                  parent_node = node.parent()
+                  parent_node.set_right(node.left())
+                  node.set_left(node.left().right())
+                  parent_node.right().set_right(node)
+            self.set_parents()
+            print('=== right rotate on node {}'.format(node_key))
+            self.display()
+
+            
+
+      def display(self,node=None):
+            if node is None:
+                  node = self._root
+            lines, *_ = self._display_aux(node)
+            for line in lines:
+                  print(line)
+            print('- '*5)
+
+      def _display_aux(self,node):
+            """Returns list of strings, width, height, and horizontal coordinate of the root."""
+            # No child.
+            if node.right() is None and node.left() is None:
+                  line = '%s' % node.data()
+                  width = len(line)
+                  height = 1
+                  middle = width // 2
+                  return [line], width, height, middle
+
+            # Only left child.
+            if node.right() is None:
+                  lines, n, p, x = self._display_aux(node.left())
+                  s = '%s' % node.data()
+                  u = len(s)
+                  first_line = (x + 1) * ' ' + (n - x - 1) * '_' + s
+                  second_line = x * ' ' + '/' + (n - x - 1 + u) * ' '
+                  shifted_lines = [line + u * ' ' for line in lines]
+                  return [first_line, second_line] + shifted_lines, n + u, p + 2, n + u // 2
+
+            # Only right child.
+            if node.left() is None:
+                  lines, n, p, x = self._display_aux(node.right())
+                  s = '%s' % node.data()
+                  u = len(s)
+                  first_line = s + x * '_' + (n - x) * ' '
+                  second_line = (u + x) * ' ' + '\\' + (n - x - 1) * ' '
+                  shifted_lines = [u * ' ' + line for line in lines]
+                  return [first_line, second_line] + shifted_lines, n + u, p + 2, u // 2
+
+            # Two children.
+            left, n, p, x = self._display_aux(node.left())
+            right, m, q, y = self._display_aux(node.right())
+            s = '%s' % node.data()
+            u = len(s)
+            first_line = (x + 1) * ' ' + (n - x - 1) * '_' + s + y * '_' + (m - y) * ' '
+            second_line = x * ' ' + '/' + (n - x - 1 + u + y) * ' ' + '\\' + (m - y - 1) * ' '
+            if p < q:
+                  left += [n * ' '] * (q - p)
+            elif q < p:
+                  right += [m * ' '] * (p - q)
+            zipped_lines = zip(left, right)
+            lines = [first_line, second_line] + [a + u * ' ' + b for a, b in zipped_lines]
+            return lines, n + m + u, max(p, q) + 2, n + u // 2
 
 
 class Node():
-      def __init__(self,data):
+      def __init__(self,data,parent,height=0):
             self._data = data
             self._left = None
             self._right = None
+            self._height = height
+            self._parent = parent
       def data(self):
             return self._data
       def left(self):
-            return self._left._data
+            return self._left
       def right(self):
-            return self._right._data
+            return self._right
+      def height(self):
+            return self._height
+      def parent(self):
+            return self._parent
       def set_left(self,new_node):
             self._left = new_node
       def set_right(self,new_node):
             self._right = new_node
+      def set_height(self,new_height):
+            self._height = new_height
+      def set_parent(self,new_parent):
+            self._parent = new_parent
 
 
-tree = BST
-print("tree is the BST ",tree)
+
+tree = BST()
+for i in [50,40,60,55,65,53,57]:
+      tree.insert(i)
+
+tree.display()
+tree.right_rotate(60)
+tree.left_rotate(50)
+
