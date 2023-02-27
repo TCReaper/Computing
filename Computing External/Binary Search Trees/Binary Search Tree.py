@@ -88,81 +88,78 @@ class BST():
                         return False,node.data()
                   else:
                         return self._avlcheck(node.left()) and self._avlcheck(node.right())
+            else:
+                  if node.left()==None and node.right()==None:
+                        pass
+                  elif node.right()==None and node.left().height()>1:
+                        pass
+                        return False,node.data()
+                  elif node.left()==None and node.right().height()>1:
+                        pass
+                        print(node.data())
+                        return False,node.data()
+
             return True,None
 
       def fix_avl(self):
             issue = self.find(self.check_avl(1))
             if issue == None:
-                  print('BST already fulfils AVL')
-                  self.display(sh=True)
+                  print('BST currently fulfils AVL\n')
+                  #self.display(sh=True)
                   return
             print('\nviolation of AVL with branches of',issue.data())
             self.display(sh=True)
             h = lambda x : x.height()
-            if h(issue.right()) > h(issue.left()): #node is right heavy
-                  if h(issue.right().right()) >= h(issue.right().left()): #right imbalance
+            if (issue.left()==None and issue.right()!=None) or \
+                  h(issue.right()) > h(issue.left()): #node is right heavy
+                  if (issue.right().left() == None and issue.right().right()!=None) or \
+                        h(issue.right().right()) >= h(issue.right().left()): #right imbalance
                         self.left_rotate(issue)
                   else:
                         self.right_rotate(issue.right())
                         self.left_rotate(issue)
             else:
-                  if h(issue.left().right()) <= h(issue.left().left()): #left imbalance
+                  if (issue.left().right()==None and issue.left().left()!=None) or \
+                        h(issue.left().right()) < h(issue.left().left()): #left imbalance
                         self.right_rotate(issue)
                   else:
                         self.left_rotate(issue.left())
                         self.right_rotate(issue)
             self.display(sh=True)
+            self.fix_avl()
 
-      
+      def left_rotate(self,node_key,r=lambda x:x.right(),
+      l=lambda x:x.left(),sr=lambda x,y: x.set_right(y),
+      sl=lambda x,y: x.set_left(y),txt='left'):
 
-
-
-            
-
-
-      def left_rotate(self,node_key):
             node = self.find(node_key)
             if node is None:
                   try:
                         node_key = node_key.data()
                         node = self.find(node_key)
                   except:
+                        print(txt,'failed',node_key)
                         return 'failed'
             if node.parent() is None:
-                  self._root = node.right()
-                  node.set_right(self._root.left())
-                  self._root.set_left(node)
+                  self._root = r(node)
+                  sr(node,l(self._root))
+                  sl(self._root,node)
             else:
                   parent_node = node.parent()
-                  parent_node.set_left(node.right())
-                  node.set_right(node.right().left())
-                  parent_node.left().set_left(node)
+                  sl(parent_node,r(node))
+                  sr(node,l(r(node)))
+                  sl(l(parent_node),node)
             self.set_parents()
-            print('\n=== left rotate on node {}'.format(node_key))
+            print('\n=== {} rotate on node {}'.format(txt,node_key))
             self.display()
 
       def right_rotate(self,node_key):
-            node = self.find(node_key)
-            if node is None:
-                  try:
-                        node_key = node_key.data()
-                        node = self.find(node_key)
-                  except:
-                        return 'failed'
-            if node.parent() is None:
-                  self._root = node.left()
-                  node.set_left(self._root.right())
-                  self._root.set_right(node)
-            else:
-                  parent_node = node.parent()
-                  parent_node.set_right(node.left())
-                  node.set_left(node.left().right())
-                  parent_node.right().set_right(node)
-            self.set_parents()
-            print('\n=== right rotate on node {}'.format(node_key))
-            self.display()
-
-            
+            r=lambda x:x.left()
+            l=lambda x:x.right()
+            sr=lambda x,y: x.set_left(y)
+            sl=lambda x,y: x.set_right(y)
+            txt='right'
+            self.left_rotate(node_key,r,l,sr,sl,txt)
 
       def display(self,node=None,sh=False):
             if node is None:
@@ -170,19 +167,19 @@ class BST():
             if sh:
                   print('\ndisplay heights')
                   self.set_heights()
-                  lines, *_ = self._display_height(node)
+                  lines, *_ = self._display_aux(node,lambda x: x.height())
             else:
                   print('\ndisplay data')
-                  lines, *_ = self._display_aux(node)
+                  lines, *_ = self._display_aux(node,lambda x: x.data())
             for line in lines:
                   print(line)
             print('- '*15)
 
-      def _display_aux(self,node):
+      def _display_aux(self,node,xfn):
             """Returns list of strings, width, height, and horizontal coordinate of the root."""
             # No child.
             if node.right() is None and node.left() is None:
-                  line = '%s' % node.data()
+                  line = '%s' % xfn(node)
                   width = len(line)
                   height = 1
                   middle = width // 2
@@ -190,8 +187,8 @@ class BST():
 
             # Only left child.
             if node.right() is None:
-                  lines, n, p, x = self._display_aux(node.left())
-                  s = '%s' % node.data()
+                  lines, n, p, x = self._display_aux(node.left(),xfn)
+                  s = '%s' % xfn(node)
                   u = len(s)
                   first_line = (x + 1) * ' ' + (n - x - 1) * '_' + s
                   second_line = x * ' ' + '/' + (n - x - 1 + u) * ' '
@@ -200,8 +197,8 @@ class BST():
 
             # Only right child.
             if node.left() is None:
-                  lines, n, p, x = self._display_aux(node.right())
-                  s = '%s' % node.data()
+                  lines, n, p, x = self._display_aux(node.right(),xfn)
+                  s = '%s' % xfn(node)
                   u = len(s)
                   first_line = s + x * '_' + (n - x) * ' '
                   second_line = (u + x) * ' ' + '\\' + (n - x - 1) * ' '
@@ -209,54 +206,9 @@ class BST():
                   return [first_line, second_line] + shifted_lines, n + u, p + 2, u // 2
 
             # Two children.
-            left, n, p, x = self._display_aux(node.left())
-            right, m, q, y = self._display_aux(node.right())
-            s = '%s' % node.data()
-            u = len(s)
-            first_line = (x + 1) * ' ' + (n - x - 1) * '_' + s + y * '_' + (m - y) * ' '
-            second_line = x * ' ' + '/' + (n - x - 1 + u + y) * ' ' + '\\' + (m - y - 1) * ' '
-            if p < q:
-                  left += [n * ' '] * (q - p)
-            elif q < p:
-                  right += [m * ' '] * (p - q)
-            zipped_lines = zip(left, right)
-            lines = [first_line, second_line] + [a + u * ' ' + b for a, b in zipped_lines]
-            return lines, n + m + u, max(p, q) + 2, n + u // 2
-
-
-      def _display_height(self,node):
-            # No child.
-            if node.right() is None and node.left() is None:
-                  line = '%s' % node.height()
-                  width = len(line)
-                  height = 1
-                  middle = width // 2
-                  return [line], width, height, middle
-
-            # Only left child.
-            if node.right() is None:
-                  lines, n, p, x = self._display_height(node.left())
-                  s = '%s' % node.height()
-                  u = len(s)
-                  first_line = (x + 1) * ' ' + (n - x - 1) * '_' + s
-                  second_line = x * ' ' + '/' + (n - x - 1 + u) * ' '
-                  shifted_lines = [line + u * ' ' for line in lines]
-                  return [first_line, second_line] + shifted_lines, n + u, p + 2, n + u // 2
-
-            # Only right child.
-            if node.left() is None:
-                  lines, n, p, x = self._display_height(node.right())
-                  s = '%s' % node.height()
-                  u = len(s)
-                  first_line = s + x * '_' + (n - x) * ' '
-                  second_line = (u + x) * ' ' + '\\' + (n - x - 1) * ' '
-                  shifted_lines = [u * ' ' + line for line in lines]
-                  return [first_line, second_line] + shifted_lines, n + u, p + 2, u // 2
-
-            # Two children.
-            left, n, p, x = self._display_height(node.left())
-            right, m, q, y = self._display_height(node.right())
-            s = '%s' % node.height()
+            left, n, p, x = self._display_aux(node.left(),xfn)
+            right, m, q, y = self._display_aux(node.right(),xfn)
+            s = '%s' % xfn(node)
             u = len(s)
             first_line = (x + 1) * ' ' + (n - x - 1) * '_' + s + y * '_' + (m - y) * ' '
             second_line = x * ' ' + '/' + (n - x - 1 + u + y) * ' ' + '\\' + (m - y - 1) * ' '
@@ -298,9 +250,14 @@ class Node():
 
 
 tree = BST()
-for i in [50,40,60,55,35,45,65,53,57,58,47]:
+import random
+arr = []
+for i in range(15):
+      arr.append(random.randint(10,99))
+for i in arr:
       tree.insert(i)
 
 tree.display()
+tree.display(sh=True)
 tree.fix_avl()
 
