@@ -52,6 +52,48 @@ class BST():
                   self._parentset(node.left(),node)
             if node.right() is not None:
                   self._parentset(node.right(),node)
+
+      def set_heights(self):
+            start = self._root
+            a,b=0,0
+            if start.left() != None:
+                  a = self._heightset( start.left())
+            if start.right() != None:
+                  b = self._heightset( start.right())
+            start.set_height( max(a,b))
+
+
+      def _heightset(self,node=None,n=0):
+            if node.left() == None and node.right() == None:
+                  node.set_height(0)
+                  return 1
+            else:
+                  a,b=0,0
+                  if node.left() != None:
+                        a = self._heightset( node.left(), n )
+                  if node.right() != None:
+                        b = self._heightset( node.right(), n )
+                  node.set_height( max(a,b))
+                  return max(a,b) + 1
+
+      def check_avl(self):
+            avl = True
+            node = self._root
+            return self._avlcheck(node)
+
+      def _avlcheck(self,node=None):
+            if node.left() != None and node.right() != None:
+                  if node.left().height() - node.right().height() > 1 or node.left().height() - node.right().height() < -1:
+                        return False
+                  else:
+                        return self._avlcheck(node.left()) and self._avlcheck(node.right())
+            return True
+            
+
+      
+
+
+
             
 
 
@@ -91,10 +133,16 @@ class BST():
 
             
 
-      def display(self,node=None):
+      def display(self,node=None,sh=False):
             if node is None:
                   node = self._root
-            lines, *_ = self._display_aux(node)
+            if sh:
+                  print('\ndisplay heights')
+                  self.set_heights()
+                  lines, *_ = self._display_height(node)
+            else:
+                  print('\ndisplay data')
+                  lines, *_ = self._display_aux(node)
             for line in lines:
                   print(line)
             print('- '*5)
@@ -145,6 +193,51 @@ class BST():
             return lines, n + m + u, max(p, q) + 2, n + u // 2
 
 
+      def _display_height(self,node):
+            # No child.
+            if node.right() is None and node.left() is None:
+                  line = '%s' % node.height()
+                  width = len(line)
+                  height = 1
+                  middle = width // 2
+                  return [line], width, height, middle
+
+            # Only left child.
+            if node.right() is None:
+                  lines, n, p, x = self._display_height(node.left())
+                  s = '%s' % node.height()
+                  u = len(s)
+                  first_line = (x + 1) * ' ' + (n - x - 1) * '_' + s
+                  second_line = x * ' ' + '/' + (n - x - 1 + u) * ' '
+                  shifted_lines = [line + u * ' ' for line in lines]
+                  return [first_line, second_line] + shifted_lines, n + u, p + 2, n + u // 2
+
+            # Only right child.
+            if node.left() is None:
+                  lines, n, p, x = self._display_height(node.right())
+                  s = '%s' % node.height()
+                  u = len(s)
+                  first_line = s + x * '_' + (n - x) * ' '
+                  second_line = (u + x) * ' ' + '\\' + (n - x - 1) * ' '
+                  shifted_lines = [u * ' ' + line for line in lines]
+                  return [first_line, second_line] + shifted_lines, n + u, p + 2, u // 2
+
+            # Two children.
+            left, n, p, x = self._display_height(node.left())
+            right, m, q, y = self._display_height(node.right())
+            s = '%s' % node.height()
+            u = len(s)
+            first_line = (x + 1) * ' ' + (n - x - 1) * '_' + s + y * '_' + (m - y) * ' '
+            second_line = x * ' ' + '/' + (n - x - 1 + u + y) * ' ' + '\\' + (m - y - 1) * ' '
+            if p < q:
+                  left += [n * ' '] * (q - p)
+            elif q < p:
+                  right += [m * ' '] * (p - q)
+            zipped_lines = zip(left, right)
+            lines = [first_line, second_line] + [a + u * ' ' + b for a, b in zipped_lines]
+            return lines, n + m + u, max(p, q) + 2, n + u // 2
+
+
 class Node():
       def __init__(self,data,parent,height=0):
             self._data = data
@@ -174,10 +267,10 @@ class Node():
 
 
 tree = BST()
-for i in [50,40,60,55,65,53,57]:
+for i in [50,40,60,55,65,53,57,42,43,39,37,38]:
       tree.insert(i)
 
 tree.display()
-tree.right_rotate(60)
-tree.left_rotate(50)
+tree.display(sh=True)
+print(tree.check_avl())
 
