@@ -35,7 +35,6 @@ class BST():
                         else:
                               current_node = current_node.right()
                   except:
-                        print('node not found')
                         return None
                   finally:
                         pass
@@ -76,19 +75,43 @@ class BST():
                   node.set_height( max(a,b))
                   return max(a,b) + 1
 
-      def check_avl(self):
+      def check_avl(self,x=0):
+            self.set_heights()
             avl = True
             node = self._root
-            return self._avlcheck(node)
+            
+            return self._avlcheck(node)[x]
 
       def _avlcheck(self,node=None):
             if node.left() != None and node.right() != None:
                   if node.left().height() - node.right().height() > 1 or node.left().height() - node.right().height() < -1:
-                        return False
+                        return False,node.data()
                   else:
                         return self._avlcheck(node.left()) and self._avlcheck(node.right())
-            return True
-            
+            return True,None
+
+      def fix_avl(self):
+            issue = self.find(self.check_avl(1))
+            if issue == None:
+                  print('BST already fulfils AVL')
+                  self.display(sh=True)
+                  return
+            print('\nviolation of AVL with branches of',issue.data())
+            self.display(sh=True)
+            h = lambda x : x.height()
+            if h(issue.right()) > h(issue.left()): #node is right heavy
+                  if h(issue.right().right()) >= h(issue.right().left()): #right imbalance
+                        self.left_rotate(issue)
+                  else:
+                        self.right_rotate(issue.right())
+                        self.left_rotate(issue)
+            else:
+                  if h(issue.left().right()) <= h(issue.left().left()): #left imbalance
+                        self.right_rotate(issue)
+                  else:
+                        self.left_rotate(issue.left())
+                        self.right_rotate(issue)
+            self.display(sh=True)
 
       
 
@@ -100,7 +123,11 @@ class BST():
       def left_rotate(self,node_key):
             node = self.find(node_key)
             if node is None:
-                  return 'Failed'
+                  try:
+                        node_key = node_key.data()
+                        node = self.find(node_key)
+                  except:
+                        return 'failed'
             if node.parent() is None:
                   self._root = node.right()
                   node.set_right(self._root.left())
@@ -111,13 +138,17 @@ class BST():
                   node.set_right(node.right().left())
                   parent_node.left().set_left(node)
             self.set_parents()
-            print('=== left rotate on node {}'.format(node_key))
+            print('\n=== left rotate on node {}'.format(node_key))
             self.display()
 
       def right_rotate(self,node_key):
             node = self.find(node_key)
             if node is None:
-                  return 'Failed'
+                  try:
+                        node_key = node_key.data()
+                        node = self.find(node_key)
+                  except:
+                        return 'failed'
             if node.parent() is None:
                   self._root = node.left()
                   node.set_left(self._root.right())
@@ -128,7 +159,7 @@ class BST():
                   node.set_left(node.left().right())
                   parent_node.right().set_right(node)
             self.set_parents()
-            print('=== right rotate on node {}'.format(node_key))
+            print('\n=== right rotate on node {}'.format(node_key))
             self.display()
 
             
@@ -145,7 +176,7 @@ class BST():
                   lines, *_ = self._display_aux(node)
             for line in lines:
                   print(line)
-            print('- '*5)
+            print('- '*15)
 
       def _display_aux(self,node):
             """Returns list of strings, width, height, and horizontal coordinate of the root."""
@@ -267,10 +298,9 @@ class Node():
 
 
 tree = BST()
-for i in [50,40,60,55,65,53,57,42,43,39,37,38]:
+for i in [50,40,60,55,35,45,65,53,57,58,47]:
       tree.insert(i)
 
 tree.display()
-tree.display(sh=True)
-print(tree.check_avl())
+tree.fix_avl()
 
