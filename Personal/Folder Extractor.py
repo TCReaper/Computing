@@ -19,6 +19,9 @@ def function():
                     shutil.move(path3, path)
         except NotADirectoryError:
             pass
+        except PermissionError:
+            print('failed -',path3)
+            pass
 
 
 
