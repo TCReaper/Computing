@@ -15,6 +15,7 @@ def function():
             folderfiles = os.listdir(path2)
             for files in folderfiles:
                 if 'mp4' in files or 'mkv' in files or 'jpg' in files:
+
                     path3 = path2+files
                     shutil.move(path3, path)
         except NotADirectoryError:
@@ -22,7 +23,6 @@ def function():
         except PermissionError:
             print('failed -',path3)
             pass
-
 
 
 function()
